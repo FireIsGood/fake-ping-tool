@@ -5,7 +5,6 @@ $(function () {
     reader.readAsDataURL(file);
     reader.onloadend = function (e) {
       const dataUrl = e.target.result;
-      console.log(dataUrl);
       $("#server-icon").attr("src", dataUrl);
     };
   });
