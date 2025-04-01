@@ -1,0 +1,76 @@
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <!--=== HTML Meta Tags ===-->
+    <title>Fake Ping Tool</title>
+    <meta name="description" content="A tool to make a server icon look like it's a discord ping" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <!--=== Favicon ===-->
+    <link rel="icon" href="https://fav.farm/🔥" />
+    <!--=== CDN links ===-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/modern-screenshot@4.6.0/dist/index.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <!--=== Stylesheet ===-->
+    <link rel="stylesheet" href="./style.css" />
+    <!--=== JavaScript ===-->
+    <script src="script.mjs" type="module" defer></script>
+  </head>
+  <body>
+    <header class="container">
+      <h1>Fake Ping Tool</h1>
+    </header>
+    <main class="container">
+      <section class="tool">
+        <article>
+          <div class="server-wrapper" id="server-icon-full">
+            <svg class="server-icon" viewBox="0 0 40 40">
+              <defs>
+                <rect id="msk-blob_mask" width="40" height="40"></rect>
+                <rect id="msk-lower_badge_masks" x="22" y="22" width="20" height="20" rx="10" ry="10"></rect>
+              </defs>
+              <mask id="msk" fill="black" x="0" y="0" width="40" height="40">
+                <use href="#msk-blob_mask" fill="white" class=""></use>
+                <use href="#msk-lower_badge_masks" fill="black"></use>
+              </mask>
+              <mask id="msk-stroke_mask">
+                <rect width="150%" height="150%" x="-25%" y="-25%" fill="white"></rect>
+                <use href="#msk-lower_badge_masks" fill="black"></use>
+              </mask>
+              <foreignObject mask="url(#msk)" x="0" y="0" width="40" height="40">
+                <img id="server-icon" src="example.png" width="40" height="40" />
+              </foreignObject>
+            </svg>
+            <div class="badge">1</div>
+          </div>
+        </article>
+        <article>
+          <fieldset>
+            <legend>Controls</legend>
+            <input type="file" id="file-upload" />
+          </fieldset>
+          <label
+            >File Name
+            <div class="placeholder" data-placeholder=".png">
+              <input type="text" id="file-name" value="server-icon" />
+            </div>
+          </label>
+          <button id="save-file">Save</button>
+        </article>
+      </section>
+    </main>
+    <!-- NOTE: Change footer font size to fixed 14px and make it a horizontal flex -->
+    <footer class="container">
+      <p>Made with 🔥 by FireIsGood</p>
+      <p><a href="./">Source Code</a></p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,100 @@
+@font-face {
+  font-family: "gg sans";
+  src: url("totallynotstolendiscordfont.woff2") format("woff2");
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --icon-width: 512px;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  line-height: 1.5;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+
+  > * {
+    margin: 0;
+  }
+
+  > ul {
+    display: contents;
+    list-style: none;
+  }
+}
+
+main {
+  container-type: inline-size;
+}
+
+.tool {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1rem;
+}
+
+@container (max-width: 700px) {
+  .tool {
+    grid-template-columns: 1fr;
+  }
+}
+
+.server-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.server-icon {
+  width: var(--icon-width);
+  aspect-ratio: 1/1;
+}
+
+.badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  width: calc(var(--icon-width) * 0.4);
+  height: calc(var(--icon-width) * 0.4);
+  border-radius: 100%;
+  background-color: rgb(218, 62, 68);
+  color: white;
+  font-family: "gg sans";
+  font-size: calc(var(--icon-width) * 0.3);
+  font-weight: 700;
+  text-align: center;
+  line-height: calc(var(--icon-width) * 0.4);
+  letter-spacing: 0.24px;
+
+  /* evil hack */
+  text-indent: -5%;
+}
+
+.placeholder {
+  position: relative;
+}
+
+.placeholder::after {
+  position: absolute;
+  display: flex;
+  align-self: center;
+  margin-bottom: var(--pico-spacing);
+  right: 1ch;
+  top: 0;
+  bottom: 0;
+  content: attr(data-placeholder);
+  pointer-events: none;
+  opacity: 0.6;
+}
