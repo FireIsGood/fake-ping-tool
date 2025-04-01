@@ -17,4 +17,12 @@ $(function () {
       link.click();
     });
   });
+
+  $("#reset-form").click(() => {
+    $("input").each(function () {
+      const attributeValue = this.getAttribute("value");
+      this.value = attributeValue;
+    });
+    $("#server-icon").attr("src", "example.png");
+  });
 });
